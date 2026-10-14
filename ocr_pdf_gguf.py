@@ -10,7 +10,6 @@ import numpy as np
 from huggingface_hub import hf_hub_download
 from huggingface_hub.utils import LocalEntryNotFoundError
 from PIL import Image, ImageEnhance, ImageFilter
-
 try:
     import pymupdf as fitz
 except ImportError:
@@ -209,7 +208,7 @@ def open_pdf_document(file_path):
 def ask_for_start_page():
     total_pages = len(doc)
     while True:
-        start_input = input(f"Enter starting page number (1-{total_pages}), default to 1: ").strip()
+        start_input = input(f"Enter starting page number to {total_pages} (1): ").strip()
         if not start_input:
             return 1
         try:
